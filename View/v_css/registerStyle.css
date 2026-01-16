@@ -1,0 +1,5 @@
+/* This hides the sections as soon as the page loads */
+.extra-fields {
+    display: none;
+
+}
