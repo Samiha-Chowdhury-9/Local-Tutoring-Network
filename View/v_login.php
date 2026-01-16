@@ -16,8 +16,9 @@
             <input type="password" id="password" name="password"><br>
             <span name="passErr"><?php if(isset($_GET["passErr"])){echo $_GET["passErr"];}?></span><br>
              Role:
-            <input type="checkbox" id="tutor" name="role" value="tutor">Tutor
-            <input type="checkbox" id="student-guardian" name="role" value="student-guardian">Student/Guardian<br>
+            <input type="radio" id="admin" name="role" value="admin">Admin
+            <input type="radio" id="tutor" name="role" value="tutor">Tutor
+            <input type="radio" id="student-guardian" name="role" value="student-guardian">Student/Guardian<br>
             <span name="roleErr"><?php if(isset($_GET["roleErr"])){echo $_GET["roleErr"];}?></span><br><br>
 
             <input type="submit" name="submit" value="submit">
