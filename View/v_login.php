@@ -8,19 +8,14 @@
         <link rel="stylesheet" href="css/loginStyle.css">
     </head>
     <body>
-        <form action="../Controller/c_authentication.php" method="GET">
+        <form action="../Controller/c_authentication.php" method="POST">
             Name:
             <input type="text" id="name" name="name"><br>
-            <span name="idErr"><?php if(isset($_GET["idErr"])){echo $_GET["idErr"];}?></span><br>
+            <span name="nameErr"><?php if(isset($_GET["nameErr"])){echo $_GET["nameErr"];}?></span><br>
             Password:
             <input type="password" id="password" name="password"><br>
             <span name="passErr"><?php if(isset($_GET["passErr"])){echo $_GET["passErr"];}?></span><br>
-             Role:
-            <input type="radio" id="admin" name="role" value="admin">Admin
-            <input type="radio" id="tutor" name="role" value="tutor">Tutor
-            <input type="radio" id="student-guardian" name="role" value="student-guardian">Student/Guardian<br>
-            <span name="roleErr"><?php if(isset($_GET["roleErr"])){echo $_GET["roleErr"];}?></span><br><br>
-
+           
             <input type="submit" name="submit" value="submit">
             <input type="reset" name="reset" value="reset">
 
