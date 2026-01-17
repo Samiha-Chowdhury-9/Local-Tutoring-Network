@@ -1,26 +1,35 @@
-<?php
-
-?>
-
 <!doctype html>
 <html>
     <head>
+        <title>Login Page</title>
         <link rel="stylesheet" href="v_css/loginStyle.css">
+        <style>
+            /* এরর মেসেজ লাল রঙে দেখানোর জন্য */
+            .error { color: red; font-size: 14px; }
+        </style>
     </head>
     <body>
+        <h1>Login</h1>
+        
         <form action="../Controller/c_authentication.php" method="POST">
             Name:
-            <input type="text" id="name" name="name"><br>
-            <span name="nameErr"><?php if(isset($_POST["nameErr"])){echo $_POST["nameErr"];}?></span><br>
+            <input type="text" id="name" name="name"> <br>
+            <span class="error"><?php if(isset($_GET["nameErr"])){echo $_GET["nameErr"];}?></span>
+            <br>
+
             Password:
-            <input type="password" id="password" name="password"><br>
-            <span name="passErr"><?php if(isset($_POST["passErr"])){echo $_POST["passErr"];}?></span><br>
+            <input type="password" id="password" name="password"> <br>
+            <span class="error"><?php if(isset($_GET["passErr"])){echo $_GET["passErr"];}?></span>
+            <br>
            
             <input type="submit" name="submit" value="submit">
             <input type="reset" name="reset" value="reset">
         </form>
 
-        <span name="genErr"><?php if(isset($_POST["genErr"])){echo $_POST["genErr"];}?></span>
+        <br>
+        <span class="error">
+            <?php if(isset($_GET["genErr"])){echo $_GET["genErr"];}?>
+        </span>
 
     </body>
 </html>

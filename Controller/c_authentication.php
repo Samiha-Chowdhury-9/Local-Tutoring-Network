@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     $name=$_POST["name"];
     $pass=$_POST["password"];
 
-        if(empty($name) && empty($pass))
+        if(empty($name) || empty($pass))
         {
             $hasErr=true;
             $nameErr="Name cannot be empty";
