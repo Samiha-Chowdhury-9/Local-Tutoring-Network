@@ -11,16 +11,16 @@
         <form action="../Controller/c_authentication.php" method="POST">
             Name:
             <input type="text" id="name" name="name"><br>
-            <span name="nameErr"><?php if(isset($_GET["nameErr"])){echo $_GET["nameErr"];}?></span><br>
+            <span name="nameErr"><?php if(isset($_POST["nameErr"])){echo $_POST["nameErr"];}?></span><br>
             Password:
             <input type="password" id="password" name="password"><br>
-            <span name="passErr"><?php if(isset($_GET["passErr"])){echo $_GET["passErr"];}?></span><br>
+            <span name="passErr"><?php if(isset($_POST["passErr"])){echo $_POST["passErr"];}?></span><br>
            
             <input type="submit" name="submit" value="submit">
             <input type="reset" name="reset" value="reset">
         </form>
 
-        <span name="genErr"><?php if(isset($_["genErr"])){echo $_GET["genErr"];}?></span>
+        <span name="genErr"><?php if(isset($_["genErr"])){echo $_POST["genErr"];}?></span>
 
     </body>
 </html>
