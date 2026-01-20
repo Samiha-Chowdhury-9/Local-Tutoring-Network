@@ -1,21 +1,27 @@
-document.addEventListener('change', function(e) {
-    if (e.target.classList.contains('role-option')) {
+document.addEventListener('change', optionDisplay);
+
+function optionDisplay(check) {
+    if (check.target.classList.contains('role-option')) {
         const tutorSection = document.getElementById('tutorExtra');
         const studentSection = document.getElementById('studentExtra');
         
-        if (e.target.value === 'tutor') {
+        if (check.target.value === 'tutor') {
             tutorSection.style.display = 'block';
             studentSection.style.display = 'none';
         } 
-        else if (e.target.value === 'student-guardian') {
+        else if (check.target.value === 'student-guardian') {
             tutorSection.style.display = 'none';
             studentSection.style.display = 'block';
         }
     }
-});
+};
 
-// Use 'click' for the Reset button
-document.getElementById('resetBtn').addEventListener('click', function() {
+
+const form = document.querySelector('form');
+
+form.addEventListener('reset', reset);
+
+function reset() {
     document.getElementById('tutorExtra').style.display = 'none';
     document.getElementById('studentExtra').style.display = 'none';
-});
+};

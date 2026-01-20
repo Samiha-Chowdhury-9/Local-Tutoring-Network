@@ -22,7 +22,7 @@
             <input type="radio" id="female" name="gender" value="female"> Female <br><br>
 
             Phone Number:
-            <input type="tel" id="phoneNum" name="phoneNum"><br>
+            <input type="text" id="phoneNum" name="phoneNum"><br>
             <span name="phoneErr"><?php if(isset($_POST["phoneErr"])){echo $_POST["phoneErr"];}?></span><br>
 
             Email:
@@ -42,7 +42,7 @@
             <input type="radio" name="role" value="student-guardian" class="role-option"> Student / Guardian<br>
             <span name="roleErr"><?php if(isset($_POST["roleErr"])){echo $_POST["roleErr"];}?></span><br>
         
-            <div id="tutorExtra" class="extra-fields">
+            <div id="tutorExtra" class="extraFields">
             Educational Background:
             <select name="tutorEducationalBackground">
                 <option value="undergraduate" selected>Undergraduate</option>
@@ -59,7 +59,7 @@
             <textarea name="shortBiography" rows="4" cols="30"></textarea><br><br>
                 </div>
 
-            <div id="studentExtra" class="extra-fields">
+            <div id="studentExtra" class="extraFields">
                 Current Class/Level:
                 <select name="studentClassLevel">
                     <option value="">Select an Option</option>

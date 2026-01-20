@@ -6,8 +6,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     $hasErr=false;
     $nameErr;
     $passErr;
-    $name=$_POST["name"];
-    $pass=$_POST["password"];
+    $name=trim($_POST["name"]);
+    $pass=trim($_POST["password"]);
 
         if(empty($name) || empty($pass))
         {
