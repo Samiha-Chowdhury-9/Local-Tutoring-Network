@@ -20,6 +20,8 @@
             Gender:
             <input type="radio" id="male" name="gender" value="male"> Male
             <input type="radio" id="female" name="gender" value="female"> Female <br><br>
+            <span name="genderErr"><?php if(isset($_POST["genderErr"])){echo $_POST["genderErr"];}?></span><br>
+
 
             Phone Number:
             <input type="text" id="phoneNum" name="phoneNum"><br>
