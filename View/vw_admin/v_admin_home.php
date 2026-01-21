@@ -25,6 +25,9 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 
         <button onclick="location.href='v_manage_subjects.php'">Manage Subjects</button>
         <br><br>
+        
+        <button onclick="location.href='v_send_notification.php'">Send Bulk Notification</button>
+        <br><br>
     </nav>
 </body>
 </html>

@@ -1,0 +1,11 @@
+table { 
+margin: 20px auto;
+width: 50%;
+border-collapse: collapse;
+}
+
+
+td { 
+padding: 10px;
+text-align: left; 
+}

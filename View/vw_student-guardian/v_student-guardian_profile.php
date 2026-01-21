@@ -15,10 +15,8 @@ $data = getStudentData($_SESSION['user_id']);
 <head>
     <title>My Profile</title>
     <link rel="stylesheet" href="../homeStyle.css">
-    <style>
-        table { margin: 20px auto; width: 50%; border-collapse: collapse; }
-        td { padding: 10px; text-align: left; }
-    </style>
+    <link rel="stylesheet" href="../vw_css/profile.css">
+
 </head>
 <body>
     <h2>My Student Profile</h2>
