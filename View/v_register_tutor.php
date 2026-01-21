@@ -6,35 +6,36 @@
 <html>
 <head>
     <title>Register Tutor</title>
-    <link rel="stylesheet" href="v_css/common.css">
+    <link rel="stylesheet" href="v_css/registerStyle.css">
+    <script src="v_js/v_register_tutor.js"></script>
 </head>
 <body>
     <h2>Tutor Registration</h2>
     <form action="../Controller/c_registration.php" method="POST">
         Username
         <input type="text" name="username" id="username" onkeyup="checkUsername()" placeholder="Enter Username" required>
-        <span id="username_msg"></span>
+        <span id="username_msg"></span><br><br>
 
         Email
-        <input type="email" name="email" required>
+        <input type="email" name="email" required><br><br>
         
         Password
-        <input type="password" name="password" required>
+        <input type="password" name="password" required><br><br>
         
         Confirm Password
-        <input type="password" name="confirm_password" placeholder="Re-type Password" required>
+        <input type="password" name="confirm_password" placeholder="Re-type Password" required><br>
 
         <h4>Professional Details</h4>
         Education Background
-        <input type="text" name="education_background" required>
+        <input type="text" name="education_background" required><br><br>
         Current Institution
-        <input type="text" name="institution" required>
+        <input type="text" name="institution" required><br><br>
         Experience
-        <input type="text" name="experience" placeholder="e.g. 2 Years" required>
+        <input type="text" name="experience" placeholder="e.g. 2 Years" required><br><br>
         Subjects
-        <input type="text" name="subjects" placeholder="Math, English" required>
+        <input type="text" name="subjects" placeholder="Math, English" required><br><br>
         Short Bio
-        <textarea name="short_bio" rows="4" placeholder="About yourself..."></textarea>
+        <textarea name="short_bio" rows="4" placeholder="About yourself..."></textarea><br><br>
         
         <br>
         <button type="submit" name="reg_tutor" id="submitBtn">Register</button>
@@ -42,38 +43,6 @@
     <p class="error"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
     <a href="v_home.php">Back Home</a>
 
-    <script>
-        function checkUsername() {
-            var username = document.getElementById('username').value;
-            var msgSpan = document.getElementById('username_msg');
-            var submitBtn = document.getElementById('submitBtn');
-
-            if (username.length === 0) {
-                msgSpan.innerHTML = "";
-                return;
-            }
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "../Controller/c_check_username.php", true);
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    try {
-                        var response = JSON.parse(xhr.responseText);
-                        msgSpan.innerHTML = response.message;
-                        if (response.status === "taken") {
-                            msgSpan.style.color = "red";
-                            submitBtn.disabled = true;
-                        } else {
-                            msgSpan.style.color = "green";
-                            submitBtn.disabled = false;
-                        }
-                    } catch (e) {}
-                }
-            };
-            xhr.send("username=" + username);
-        }
-    </script>
+    
 </body>
 </html>

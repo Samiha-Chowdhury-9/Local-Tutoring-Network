@@ -1,0 +1,77 @@
+/* --- Admin Table Styles --- */
+table { 
+    width: 90%; 
+    margin: 20px auto; 
+    border-collapse: collapse; 
+}
+
+th, td { 
+    border: 1px solid #ddd; 
+    padding: 12px; 
+    text-align: center; 
+}
+
+th { 
+    background-color: skyblue; 
+    color: black; /* Changed to black for better readability */
+}
+
+/* --- Action Buttons --- */
+.btn-approve { 
+    background-color: #28a745; /* Green */
+    color: white; 
+    border: none; 
+    padding: 5px 10px; 
+    cursor: pointer; 
+    border-radius: 3px;
+}
+
+.btn-reject { 
+    background-color: #dc3545; /* Red */
+    color: white; 
+    border: none; 
+    padding: 5px 10px; 
+    cursor: pointer; 
+    border-radius: 3px;
+}
+
+.btn-approve:hover { background-color: #218838; }
+.btn-reject:hover { background-color: #c82333; }/* --- Admin Table Styles --- */
+table { 
+    width: 90%; 
+    margin: 20px auto; 
+    border-collapse: collapse; 
+}
+
+th, td { 
+    border: 1px solid #ddd; 
+    padding: 12px; 
+    text-align: center; 
+}
+
+th { 
+    background-color: skyblue; 
+    color: black; /* Changed to black for better readability */
+}
+
+/* --- Action Buttons --- */
+.btn-approve { 
+    background-color: #28a745; /* Green */
+    color: white; 
+    border: none; 
+    padding: 5px 10px; 
+    cursor: pointer; 
+    border-radius: 3px;
+}
+
+.btn-reject { 
+    background-color: #dc3545; /* Red */
+    color: white; 
+    border: none; 
+    padding: 5px 10px; 
+    cursor: pointer; 
+    border-radius: 3px;
+}
+
+.btn-approve:hover { background-color: #218838; }
+.btn-reject:hover { background-color: #c82333; }
