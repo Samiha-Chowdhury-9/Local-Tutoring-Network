@@ -1,0 +1,12 @@
+h2 {
+    background-color: skyblue;
+    display: block;
+    padding: 10px;
+    
+}
+
+button {
+    color: black;
+    background-color: bisque;
+    padding: 10px;
+}

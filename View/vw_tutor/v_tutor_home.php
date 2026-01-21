@@ -2,7 +2,16 @@
 session_start();
 if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){ header("Location: ../v_login.php"); exit(); }
 ?>
-<h1>Tutor Dashboard</h1>
-Welcome <?php echo $_SESSION['username']; ?>
-<br><br>
-<a href="../v_logout.php">Logout</a>
+<!DOCTYPE html>
+<html>
+<head><title>Tutor Dashboard</title><link rel="stylesheet" href="../v_css/common.css"></head>
+<body>
+    <h1>Tutor Dashboard</h1>
+    <p>Welcome, <?php echo $_SESSION['username']; ?></p>
+    
+    <nav>
+        <a href="v_tutor_profile.php"><button>My Profile</button></a>
+        <a href="../v_logout.php"><button>Logout</button></a>
+    </nav>
+</body>
+</html>
