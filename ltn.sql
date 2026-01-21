@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2026 at 05:52 PM
+-- Generation Time: Jan 21, 2026 at 06:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -32,15 +32,16 @@ CREATE TABLE `session_schedules` (
   `tutor_id` int(11) NOT NULL,
   `date` date NOT NULL,
   `time_slot` varchar(50) NOT NULL,
-  `status` enum('available','booked') NOT NULL DEFAULT 'available'
+  `status` enum('available','booked') NOT NULL DEFAULT 'available',
+  `student_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `session_schedules`
 --
 
-INSERT INTO `session_schedules` (`id`, `tutor_id`, `date`, `time_slot`, `status`) VALUES
-(1, 3, '2026-01-27', '09:00 AM', 'available');
+INSERT INTO `session_schedules` (`id`, `tutor_id`, `date`, `time_slot`, `status`, `student_id`) VALUES
+(1, 3, '2026-01-27', '09:00 AM', 'booked', 2);
 
 -- --------------------------------------------------------
 
@@ -145,7 +146,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `status`) VA
 --
 ALTER TABLE `session_schedules`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_new_tutor_id` (`tutor_id`);
+  ADD KEY `fk_new_tutor_id` (`tutor_id`),
+  ADD KEY `fk_student_booking` (`student_id`);
 
 --
 -- Indexes for table `student_profiles`
@@ -217,7 +219,8 @@ ALTER TABLE `users`
 -- Constraints for table `session_schedules`
 --
 ALTER TABLE `session_schedules`
-  ADD CONSTRAINT `fk_new_tutor_id` FOREIGN KEY (`tutor_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_new_tutor_id` FOREIGN KEY (`tutor_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_student_booking` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `student_profiles`
