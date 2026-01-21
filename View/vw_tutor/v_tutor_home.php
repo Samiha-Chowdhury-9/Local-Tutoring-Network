@@ -12,6 +12,8 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){ header("Location:
     <nav>
         <a href="v_tutor_profile.php"><button>My Profile</button></a>
         <a href="../v_logout.php"><button>Logout</button></a>
+        <a href="v_manage_schedule.php"><button>Manage Schedule</button></a>
+        <br><br>
     </nav>
 </body>
 </html>

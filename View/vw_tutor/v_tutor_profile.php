@@ -20,6 +20,7 @@ $data = getTutorData($_SESSION['user_id']);
         <tr><td>Experience:</td><td><?php echo $data['experience']; ?></td></tr>
         <tr><td>Subjects:</td><td><?php echo $data['subjects']; ?></td></tr>
         <tr><td>Bio:</td><td><?php echo $data['short_bio']; ?></td></tr>
+        <tr><td>Hourly Rate:</td><td><?php echo $data['hourly_rate']; ?> Tk</td></tr>
     </table>
     <br>
     <a href="v_tutor_edit_profile.php"><button>Edit Profile</button></a>

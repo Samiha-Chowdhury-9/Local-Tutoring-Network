@@ -62,12 +62,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(empty($inst)) $queryString .= "&instErr=" . urlencode("Required");
         if(empty($loc))  $queryString .= "&locErr=" . urlencode("Required");
 
-    } elseif (isset($_POST['reg_tutor'])) {
+} elseif (isset($_POST['reg_tutor'])) {
         $edu = clean($_POST['education_background']);
         $inst = clean($_POST['institution']);
         $exp = clean($_POST['experience']);
-        $sub = clean($_POST['subjects']);
-        $bio = clean($_POST['short_bio']); 
+        $bio = clean($_POST['short_bio']);
+        $rate = clean($_POST['hourly_rate']); 
+
+        
+        if (isset($_POST['subjects'])) {
+            $sub = implode(", ", $_POST['subjects']); 
+        } else {
+            $sub = "";
+        }
+
+      
+        if(empty($edu))  $queryString .= "&eduErr=" . urlencode("Required");
+        if(empty($inst)) $queryString .= "&instErr=" . urlencode("Required");
+        if(empty($exp))  $queryString .= "&expErr=" . urlencode("Required");
+        if(empty($sub))  $queryString .= "&subErr=" . urlencode("Required");
+        if(empty($rate)) $queryString .= "&rateErr=" . urlencode("Required");
+
+        if ($queryString != "") {
+             header("Location: ../View/v_register_tutor.php?" . $queryString);
+             exit();
+        }
+
+       
+        $result = registerTutor($username, $password, $email, $edu, $inst, $exp, $sub, $bio, $rate);
+        
+        if ($result === true) {
+            header("Location: ../View/v_login.php?success=Account Pending Approval");
+        } else {
+            header("Location: ../View/v_register_tutor.php?globalErr=" . urlencode($result));
+        }
+    }
 
         if(empty($edu))  $queryString .= "&eduErr=" . urlencode("Required");
         if(empty($inst)) $queryString .= "&instErr=" . urlencode("Required");
@@ -95,15 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: ../View/v_register_student.php?globalErr=" . urlencode($result));
             }
 
-        } elseif (isset($_POST['reg_tutor'])) {
-            $result = registerTutor($username, $password, $email, $edu, $inst, $exp, $sub, $bio);
-            
-            if ($result === true) {
-                header("Location: ../View/v_login.php?success=Account Pending Approval");
-            } else {
-                header("Location: ../View/v_register_tutor.php?globalErr=" . urlencode($result));
-            }
-        }
+        } 
     }
-}
+
 ?>
