@@ -1,21 +1,17 @@
 <?php
-    require_once("m_dbConnect.php");
+require_once("m_dbConnect.php");
 
-    function authUser($name, $pass)
-    {
-        $query="SELECT * FROM users WHERE Name='$name' AND Password='$pass'";
-        $conn=dbConnect();
-        $data=mysqli_query($conn, $query);
-        $users="";
-        if(mysqli_num_rows($data)>0)
-        {
-            while($rows=mysqli_fetch_assoc($data))
-            {
-                $users=$rows;
-            }
-        }
-
-        return $users;
-
+function authUser($username, $password) {
+    $conn = dbConnect();
+    $safeUser = mysqli_real_escape_string($conn, $username);
+    
+   
+    $query = "SELECT * FROM users WHERE username='$safeUser' AND password='$password'";
+    $result = mysqli_query($conn, $query);
+    
+    if (mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result);
     }
+    return false;
+}
 ?>

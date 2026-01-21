@@ -1,89 +1,23 @@
 <?php
 session_start();
 require_once("../Model/m_user.php");
-if($_SERVER["REQUEST_METHOD"]=="POST")
-{
-    $hasErr=false;
-    $nameErr;
-    $passErr;
-    $name=trim($_POST["name"]);
-    $pass=trim($_POST["password"]);
 
-        if(empty($name) || empty($pass))
-        {
-            $hasErr=true;
-            $nameErr="Name cannot be empty";
-            $passErr="Password cannot be empty";
-            header("Location: ../View/v_login.php?nameErr=".$nameErr."&passErr=".$passErr);
-            exit;
-        }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-        else
-        {
-            $user=authUser($name,$pass);
-            if($user)
-            {
-                if(strtolower($user['Role'])=='admin')
-                {
-                    if(strtolower($user['Status'])=='active')
-                    {
-                        $_SESSION['name']=$user['Name'];
-                        $_SESSION['role']=$user['Role'];
-                        header("Location: ../View/vw_admin/v_admin_home.php");
-                        exit;
-                    }
+    $user = authUser($username, $password);
 
-                    else
-                    {
-                        header("Location: ../View/v_login.php?genErr=User not found");
-                        exit;
-                    }
-                    
-                    
-                }
+    if ($user) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'];
 
-                elseif(strtolower($user['Role'])=='tutor')
-                {
-                    if(strtolower($user['Status'])=='active')
-                    {
-                        $_SESSION['name']=$user['Name'];
-                        $_SESSION['role']=$user['Role'];
-                        header("Location: ../View/vw_tutor/v_tutor_home.php");
-                        exit;
-                    }
-
-                    else
-                    {
-                        header("Location: ../View/v_login.php?genErr=User not found");
-                        exit;
-                    }
-                }
-
-                elseif(strtolower($user['Role'])=='student-guardian')
-                {
-                    if(strtolower($user['Status'])=='active')
-                    {
-                        $_SESSION['name']=$user['Name'];
-                        $_SESSION['role']=$user['Role'];
-                        header("Location: ../View/vw_student-guardian/v_student-guardian_home.php");
-                        exit;
-                    }
-
-                    else
-                    {
-                        header("Location: ../View/v_login.php?genErr=User not found");
-                        exit;
-                    }
-                }
-            }
-            else
-            {
-                header("Location: ../View/v_login.php?genErr=Id or password didn't match");
-                exit;
-
-            }
-        
+        if ($user['role'] == 'admin') header("Location: ../View/vw_admin/v_admin_home.php");
+        elseif ($user['role'] == 'tutor') header("Location: ../View/vw_tutor/v_tutor_home.php");
+        elseif ($user['role'] == 'student-guardian') header("Location: ../View/vw_student-guardian/v_student-guardian_home.php");
+    } else {
+        header("Location: ../View/v_login.php?error=Invalid Credentials");
     }
 }
-
 ?>

@@ -1,13 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){ header("Location: ../v_login.php"); exit(); }
 ?>
-<!doctype html>
-<html>
-    <head>
-    <link rel="stylesheet" href="v_admin_style.css">
-    </head>
-    <body>
-        <h1><?php echo "Welcome Admin ";?></h1>
-        <a href="../v_logout.php">logout<a>
-        
-  </body>
-</html>
+<h1>Admin Dashboard</h1>
+Welcome <?php echo $_SESSION['username']; ?>
+<br><br>
+<a href="../v_logout.php">Logout</a>
