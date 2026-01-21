@@ -29,20 +29,38 @@ function getStudentData($user_id) {
 }
 
 
-function updateTutorProfile($user_id, $email, $edu, $inst, $exp, $sub, $bio) {
+
+function getAllSubjects() {
     $conn = dbConnect();
+    $sql = "SELECT * FROM subjects ORDER BY subject_name ASC";
+    $result = mysqli_query($conn, $sql);
+    $subjects = [];
+    while($row = mysqli_fetch_assoc($result)) {
+        $subjects[] = $row;
+    }
+    return $subjects;
+}
+
+function updateTutorProfile($user_id, $email, $edu, $inst, $exp, $sub, $bio, $rate) {
+    $conn = dbConnect();
+    
+
     $sql1 = "UPDATE users SET email='$email' WHERE id='$user_id'";
     mysqli_query($conn, $sql1);
+
 
     $sql2 = "UPDATE tutor_profiles SET 
              education_background='$edu', 
              institution='$inst', 
              experience='$exp', 
              subjects='$sub', 
-             short_bio='$bio' 
+             short_bio='$bio',
+             hourly_rate='$rate' 
              WHERE user_id='$user_id'";
+             
     return mysqli_query($conn, $sql2);
 }
+
 
 function updateAdminProfile($user_id, $email) {
     $conn = dbConnect();

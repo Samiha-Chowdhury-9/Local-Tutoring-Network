@@ -1,10 +1,15 @@
+<?php
+
+require_once("../Model/m_profiles.php");
+$allSubjects = getAllSubjects();
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Register Tutor</title>
     <link rel="stylesheet" href="v_css/registerStyle.css">
-    <script src="v_js/v_register_tutor.js" defer>   
-    </script>
+    <script src="v_js/v_register_tutor.js" defer></script>
+
 </head>
 <body>
     <h2>Tutor Registration</h2>
@@ -38,6 +43,12 @@
 
         <h4>Professional Details</h4>
         
+        Hourly Rate (Tk):
+        <input type="number" name="hourly_rate" placeholder="e.g. 500">
+        <br>
+        <?php if(isset($_GET['rateErr'])) echo "<span class='error-text'>".$_GET['rateErr']."</span><br>"; ?>
+        <br>
+
         Education Background:
         <input type="text" name="education_background">
         <br>
@@ -57,7 +68,12 @@
         <br>
 
         Subjects:
-        <input type="text" name="subjects" placeholder="Math, English">
+        <div class="checkbox-group">
+            <?php foreach($allSubjects as $sub): ?>
+                <input type="checkbox" name="subjects[]" value="<?php echo $sub['subject_name']; ?>">
+                <label><?php echo $sub['subject_name']; ?></label><br>
+            <?php endforeach; ?>
+        </div>
         <br>
         <?php if(isset($_GET['subErr'])) echo "<span class='error-text'>".$_GET['subErr']."</span><br>"; ?>
         <br>
@@ -73,6 +89,5 @@
     
     <a href="v_home.php">Back Home</a>
 
-    
 </body>
 </html>

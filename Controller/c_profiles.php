@@ -9,10 +9,17 @@ if (isset($_POST['update_tutor'])) {
     $edu = $_POST['education_background'];
     $inst = $_POST['institution'];
     $exp = $_POST['experience'];
-    $sub = $_POST['subjects'];
     $bio = $_POST['short_bio'];
+    $rate = $_POST['hourly_rate']; 
 
-    if(updateTutorProfile($id, $email, $edu, $inst, $exp, $sub, $bio)) {
+    
+    if (isset($_POST['subjects'])) {
+        $sub = implode(", ", $_POST['subjects']); 
+    } else {
+        $sub = ""; 
+    }
+
+    if(updateTutorProfile($id, $email, $edu, $inst, $exp, $sub, $bio, $rate)) {
         header("Location: ../View/vw_tutor/v_tutor_profile.php?success=Profile Updated");
     } else {
         header("Location: ../View/vw_tutor/v_tutor_edit_profile.php?error=Update Failed");
