@@ -1,18 +1,4 @@
 <?php
-<<<<<<< HEAD
-require_once("../Model/m_dbConnect.php");
-
-function bookSession($student_id, $tutor_id, $subject, $time) {
-    $conn = dbConnect();
-    $sql = "INSERT INTO bookings (student_id, tutor_id, subject, session_time, status) 
-            VALUES ('$student_id', '$tutor_id', '$subject', '$time', 'pending')";
-    
-    if(mysqli_query($conn, $sql)) {
-        return true;
-    } else {
-        return false;
-    }
-=======
 require_once("m_dbConnect.php");
 
 function getAvailableSlots($tutor_id) {
@@ -55,6 +41,5 @@ function getStudentBookings($student_id) {
         $bookings[] = $row;
     }
     return $bookings;
->>>>>>> aae3cd4bbe1c35b55ecfe7d003f323b3618e6a63
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-require_once("../Model/m_dbConnect.php");
+require_once("m_dbConnect.php");
 
 function registerStudent($username, $pass, $email, $edu, $inst, $loc) {
     $conn = dbConnect();
@@ -7,9 +7,11 @@ function registerStudent($username, $pass, $email, $edu, $inst, $loc) {
     $check = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
     if(mysqli_num_rows($check) > 0) return "Username taken";
 
+   
     $sql1 = "INSERT INTO users (username, password, email, role) VALUES ('$username', '$pass', '$email', 'student-guardian')";
     if(mysqli_query($conn, $sql1)){
         $uid = mysqli_insert_id($conn);
+        
         $sql2 = "INSERT INTO student_profiles (user_id, education_background, institution, location) VALUES ('$uid', '$edu', '$inst', '$loc')";
         if(mysqli_query($conn, $sql2)) return true;
     }

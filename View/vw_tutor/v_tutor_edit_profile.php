@@ -45,7 +45,7 @@ $mySubjects = explode(", ", $data['subjects']);
         <div class="checkbox-group">
             <?php foreach($allSubjects as $sub): ?>
                 <?php 
-                    // Check if the tutor already has this subject
+                   
                     $checked = in_array($sub['subject_name'], $mySubjects) ? "checked" : ""; 
                 ?>
                 <input type="checkbox" name="subjects[]" value="<?php echo $sub['subject_name']; ?>" <?php echo $checked; ?>>
