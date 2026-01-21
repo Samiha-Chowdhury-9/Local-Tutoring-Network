@@ -31,4 +31,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+
+    if (isset($_POST['add_subject'])) {
+        $name = trim($_POST['subject_name']);
+        
+        if (!empty($name)) {
+            if (addSubject($name)) {
+                header("Location: ../View/vw_admin/v_manage_subjects.php?msg=Subject Added");
+            } else {
+                header("Location: ../View/vw_admin/v_manage_subjects.php?err=Subject Already Exists");
+            }
+        } else {
+            header("Location: ../View/vw_admin/v_manage_subjects.php?err=Name Cannot be Empty");
+        }
+    }
+
+ 
+    if (isset($_POST['delete_subject'])) {
+        $id = $_POST['subject_id'];
+        
+        if (deleteSubject($id)) {
+            header("Location: ../View/vw_admin/v_manage_subjects.php?msg=Subject Deleted");
+        } else {
+            header("Location: ../View/vw_admin/v_manage_subjects.php?err=Delete Failed");
+        }
+    }
 ?>

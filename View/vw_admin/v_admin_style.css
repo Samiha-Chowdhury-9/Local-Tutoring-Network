@@ -1,77 +1,38 @@
-/* --- Admin Table Styles --- */
-table { 
-    width: 90%; 
-    margin: 20px auto; 
-    border-collapse: collapse; 
+/* --- Subject Form Styles --- */
+.subject-form {
+    margin: 20px auto;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    width: 50%;
+    background-color: #f9f9f9;
 }
 
-th, td { 
-    border: 1px solid #ddd; 
-    padding: 12px; 
-    text-align: center; 
+.input-box {
+    padding: 8px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-th { 
-    background-color: skyblue; 
-    color: black; /* Changed to black for better readability */
-}
-
-/* --- Action Buttons --- */
-.btn-approve { 
+/* --- New Buttons --- */
+.btn-add {
     background-color: #28a745; /* Green */
-    color: white; 
-    border: none; 
-    padding: 5px 10px; 
-    cursor: pointer; 
-    border-radius: 3px;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.btn-reject { 
+.btn-delete {
     background-color: #dc3545; /* Red */
-    color: white; 
-    border: none; 
-    padding: 5px 10px; 
-    cursor: pointer; 
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
     border-radius: 3px;
 }
 
-.btn-approve:hover { background-color: #218838; }
-.btn-reject:hover { background-color: #c82333; }/* --- Admin Table Styles --- */
-table { 
-    width: 90%; 
-    margin: 20px auto; 
-    border-collapse: collapse; 
-}
-
-th, td { 
-    border: 1px solid #ddd; 
-    padding: 12px; 
-    text-align: center; 
-}
-
-th { 
-    background-color: skyblue; 
-    color: black; /* Changed to black for better readability */
-}
-
-/* --- Action Buttons --- */
-.btn-approve { 
-    background-color: #28a745; /* Green */
-    color: white; 
-    border: none; 
-    padding: 5px 10px; 
-    cursor: pointer; 
-    border-radius: 3px;
-}
-
-.btn-reject { 
-    background-color: #dc3545; /* Red */
-    color: white; 
-    border: none; 
-    padding: 5px 10px; 
-    cursor: pointer; 
-    border-radius: 3px;
-}
-
-.btn-approve:hover { background-color: #218838; }
-.btn-reject:hover { background-color: #c82333; }
+.btn-add:hover { background-color: #218838; }
+.btn-delete:hover { background-color: #c82333; }

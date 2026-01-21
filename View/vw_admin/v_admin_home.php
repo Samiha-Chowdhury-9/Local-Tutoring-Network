@@ -22,6 +22,9 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
         
         <br><br>
         <button onclick="location.href='../../View/v_logout.php'">Logout</button>
+
+        <button onclick="location.href='v_manage_subjects.php'">Manage Subjects</button>
+        <br><br>
     </nav>
 </body>
 </html>
