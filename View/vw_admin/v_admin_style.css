@@ -1,0 +1,38 @@
+/* --- Subject Form Styles --- */
+.subject-form {
+    margin: 20px auto;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    width: 50%;
+    background-color: #f9f9f9;
+}
+
+.input-box {
+    padding: 8px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* --- New Buttons --- */
+.btn-add {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn-add:hover { background-color: #218838; }
+.btn-delete:hover { background-color: #c82333; }

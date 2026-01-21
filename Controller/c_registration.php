@@ -1,63 +1,108 @@
 <?php
+session_start();
 require_once("../Model/m_registration.php");
 
+function clean($data) {
+        $data = trim($data);            
+        $data = stripslashes($data);    
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-    $email = $_POST['email'];
 
     
-    if ($password !== $confirm_password) {
-        $errorMsg = "Passwords do not match!";
-        if (isset($_POST['reg_student'])) {
-            header("Location: ../View/v_register_student.php?error=" . urlencode($errorMsg));
-        } else {
-            header("Location: ../View/v_register_tutor.php?error=" . urlencode($errorMsg));
-        }
-        exit();
+    $username = clean($_POST['username']);
+    $email    = clean($_POST['email']);
+    $password = $_POST['password']; 
+    $confirm  = $_POST['confirm_password'];
+
+   
+    $queryString = ""; 
+
+ 
+
+   
+    if (empty($username)) {
+        $queryString .= "&usernameErr=" . urlencode("Username is required");
     }
 
     
+    if (empty($email)) {
+        $queryString .= "&emailErr=" . urlencode("Email is required");
+    }
+    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $queryString .= "&emailErr=" . urlencode("Invalid email format");
+    }
+    elseif (isEmailTaken($email)) {
+        $queryString .= "&emailErr=" . urlencode("Email already registered");
+    }
+
+   
+    if (empty($password)) {
+        $queryString .= "&passErr=" . urlencode("Password is required");
+    }
+    elseif (strlen($password) < 4) {
+        $queryString .= "&passErr=" . urlencode("Password too short (min 4)");
+    }
+
+  
+    if ($password !== $confirm) {
+        $queryString .= "&confirmErr=" . urlencode("Passwords do not match");
+    }
+
+ 
+
     if (isset($_POST['reg_student'])) {
-        $edu = $_POST['education_background'];
-        $inst = $_POST['institution'];
-        $loc = $_POST['location'];
+        $edu = clean($_POST['education_background']);
+        $inst = clean($_POST['institution']);
+        $loc = clean($_POST['location']);
 
-        if (empty($username) || empty($password) || empty($email) || empty($edu) || empty($inst) || empty($loc)) {
-            header("Location: ../View/v_register_student.php?error=All fields required");
-            exit();
-        }
+        if(empty($edu))  $queryString .= "&eduErr=" . urlencode("Required");
+        if(empty($inst)) $queryString .= "&instErr=" . urlencode("Required");
+        if(empty($loc))  $queryString .= "&locErr=" . urlencode("Required");
 
-        $result = registerStudent($username, $password, $email, $edu, $inst, $loc);
-
-        if ($result === true) {
-            header("Location: ../View/v_login.php?success=Student Account Created");
-        } else {
-            header("Location: ../View/v_register_student.php?error=" . urlencode($result));
-        }
-
-    
     } elseif (isset($_POST['reg_tutor'])) {
-        $edu = $_POST['education_background'];
-        $inst = $_POST['institution'];
-        $exp = $_POST['experience'];
-        $sub = $_POST['subjects'];
-        $bio = $_POST['short_bio'];
+        $edu = clean($_POST['education_background']);
+        $inst = clean($_POST['institution']);
+        $exp = clean($_POST['experience']);
+        $sub = clean($_POST['subjects']);
+        $bio = clean($_POST['short_bio']); 
 
-        if (empty($username) || empty($password) || empty($email) || empty($edu) || empty($inst) || empty($exp) || empty($sub)) {
-            header("Location: ../View/v_register_tutor.php?error=All fields required");
-            exit();
-        }
+        if(empty($edu))  $queryString .= "&eduErr=" . urlencode("Required");
+        if(empty($inst)) $queryString .= "&instErr=" . urlencode("Required");
+        if(empty($exp))  $queryString .= "&expErr=" . urlencode("Required");
+        if(empty($sub))  $queryString .= "&subErr=" . urlencode("Required");
+    }
 
-        $result = registerTutor($username, $password, $email, $edu, $inst, $exp, $sub, $bio);
+   
 
-        if ($result === true) {
-            header("Location: ../View/v_login.php?success=Tutor Account Created");
-        } else {
-            header("Location: ../View/v_register_tutor.php?error=" . urlencode($result));
+    if ($queryString != "") {
+       
+        $url = isset($_POST['reg_student']) ? "../View/v_register_student.php" : "../View/v_register_tutor.php";
+       
+        header("Location: $url?" . $queryString);
+        exit();
+    } 
+    else {
+    
+        if (isset($_POST['reg_student'])) {
+            $result = registerStudent($username, $password, $email, $edu, $inst, $loc);
+            
+            if ($result === true) {
+                header("Location: ../View/v_login.php?success=Student Account Created");
+            } else {
+                header("Location: ../View/v_register_student.php?globalErr=" . urlencode($result));
+            }
+
+        } elseif (isset($_POST['reg_tutor'])) {
+            $result = registerTutor($username, $password, $email, $edu, $inst, $exp, $sub, $bio);
+            
+            if ($result === true) {
+                header("Location: ../View/v_login.php?success=Account Pending Approval");
+            } else {
+                header("Location: ../View/v_register_tutor.php?globalErr=" . urlencode($result));
+            }
         }
     }
 }
