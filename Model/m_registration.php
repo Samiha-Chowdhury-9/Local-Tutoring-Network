@@ -40,4 +40,12 @@ function registerTutor($username, $pass, $email, $edu, $inst, $exp, $sub, $bio) 
     return "Error: " . mysqli_error($conn);
 }
 
+function isEmailTaken($email) {
+    $conn = dbConnect();
+    $safeEmail = mysqli_real_escape_string($conn, $email);
+    $query = "SELECT id FROM users WHERE email='$safeEmail'";
+    $result = mysqli_query($conn, $query);
+    return mysqli_num_rows($result) > 0;
+}
+
 ?>
