@@ -32,6 +32,21 @@ if (isset($_POST['update_admin'])) {
 }
 
 
+if (isset($_POST['update_student'])) {
+    $id = $_SESSION['user_id'];
+    $email = $_POST['email'];
+    $edu = $_POST['education_background'];
+    $inst = $_POST['institution'];
+    $loc = $_POST['location'];
+
+    if(updateStudentProfile($id, $email, $edu, $inst, $loc)) {
+        header("Location: ../View/vw_student-guardian/v_student-guardian_profile.php?success=Profile Updated");
+    } else {
+        header("Location: ../View/vw_student-guardian/v_student-guardian_edit_profile.php?error=Update Failed");
+    }
+}
+
+
 if (isset($_POST['delete_account'])) {
     $id = $_SESSION['user_id'];
     if(deleteAccount($id)) {

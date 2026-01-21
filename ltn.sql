@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2026 at 12:47 PM
+-- Generation Time: Jan 21, 2026 at 02:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,7 +40,7 @@ CREATE TABLE `student_profiles` (
 --
 
 INSERT INTO `student_profiles` (`profile_id`, `user_id`, `education_background`, `institution`, `location`) VALUES
-(2, 2, 'class 10', 'preparatory grammar school', 'mirpur'),
+(2, 2, 'class 9', 'preparatory grammar school', 'mirpur'),
 (3, 4, 'class 9', 'chandapur school', 'chondronogor');
 
 -- --------------------------------------------------------
@@ -64,7 +64,7 @@ CREATE TABLE `tutor_profiles` (
 --
 
 INSERT INTO `tutor_profiles` (`profile_id`, `user_id`, `education_background`, `institution`, `experience`, `subjects`, `short_bio`) VALUES
-(1, 3, 'undergraduate', 'aiub', '2 year', 'ict, math', NULL),
+(1, 3, 'undergraduate', 'nsu', '2 year', 'ict, math', ''),
 (2, 5, 'undergraduate', 'aiub', '1 year', 'ict, math', 'pagla');
 
 -- --------------------------------------------------------
@@ -87,7 +87,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `status`) VALUES
-(1, 'admin', 'admin123', 'admin@proton.com', 'admin', 'active'),
+(1, 'admin', 'admin123', 'admin@proton.co', 'admin', 'active'),
 (2, 'student', 'student123', 'student@proton.com', 'student-guardian', 'active'),
 (3, 'tutor', 'tutor123', 'tutor@proton.com', 'tutor', 'active'),
 (4, 'chandu', 'cchandu123', 'chandu@yahoo.com', 'student-guardian', 'active'),
