@@ -1,10 +1,9 @@
 <?php
 require_once("m_dbConnect.php");
 
-
 function getTutorData($user_id) {
     $conn = dbConnect();
-    $sql = "SELECT u.username, u.email, t.* FROM users u 
+    $sql = "SELECT u.username, u.email, u.status, t.* FROM users u 
             JOIN tutor_profiles t ON u.id = t.user_id 
             WHERE u.id = '$user_id'";
     $result = mysqli_query($conn, $sql);
@@ -18,17 +17,14 @@ function getAdminData($user_id) {
     return mysqli_fetch_assoc($result);
 }
 
-
 function getStudentData($user_id) {
     $conn = dbConnect();
-    $sql = "SELECT u.username, u.email, s.* FROM users u 
+    $sql = "SELECT u.username, u.email, u.status, s.* FROM users u 
             JOIN student_profiles s ON u.id = s.user_id 
             WHERE u.id = '$user_id'";
     $result = mysqli_query($conn, $sql);
     return mysqli_fetch_assoc($result);
 }
-
-
 
 function getAllSubjects() {
     $conn = dbConnect();
@@ -44,10 +40,8 @@ function getAllSubjects() {
 function updateTutorProfile($user_id, $email, $edu, $inst, $exp, $sub, $bio, $rate) {
     $conn = dbConnect();
     
-
     $sql1 = "UPDATE users SET email='$email' WHERE id='$user_id'";
     mysqli_query($conn, $sql1);
-
 
     $sql2 = "UPDATE tutor_profiles SET 
              education_background='$edu', 
@@ -61,22 +55,18 @@ function updateTutorProfile($user_id, $email, $edu, $inst, $exp, $sub, $bio, $ra
     return mysqli_query($conn, $sql2);
 }
 
-
 function updateAdminProfile($user_id, $email) {
     $conn = dbConnect();
     $sql = "UPDATE users SET email='$email' WHERE id='$user_id'";
     return mysqli_query($conn, $sql);
 }
 
-
 function updateStudentProfile($user_id, $email, $edu, $inst, $loc) {
     $conn = dbConnect();
     
-   
     $sql1 = "UPDATE users SET email='$email' WHERE id='$user_id'";
     mysqli_query($conn, $sql1);
 
-    
     $sql2 = "UPDATE student_profiles SET 
              education_background='$edu', 
              institution='$inst', 
@@ -85,7 +75,6 @@ function updateStudentProfile($user_id, $email, $edu, $inst, $loc) {
              
     return mysqli_query($conn, $sql2);
 }
-
 
 function deleteAccount($user_id) {
     $conn = dbConnect();

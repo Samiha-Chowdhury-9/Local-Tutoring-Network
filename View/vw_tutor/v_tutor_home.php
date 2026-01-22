@@ -1,38 +1,37 @@
 <?php
 session_start();
-if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){ header("Location: ../v_login.php"); exit(); }
+if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){ 
+    header("Location: ../v_login.php"); exit(); 
+}
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Tutor Dashboard</title><link rel="stylesheet" href="../v_css/common.css"></head>
+<head>
+    <title>Tutor Dashboard</title>
+    <link rel="stylesheet" href="v_tutor_style.css">
+</head>
 <body>
+    <header>
+        <h1>Tutor Dashboard</h1>
+    </header>
 
-    <h1>Tutor Dashboard</h1>
-    <p>Welcome, <?php echo $_SESSION['username']; ?></p>
-    
-    <?php
-    require_once("../../Model/m_notification.php");
-    $notice = getLatestNotification();
-    ?>
-
-    <?php if($notice): ?>
-        <div style="background-color: #fff3cd; color: #856404; padding: 15px; border: 1px solid #ffeeba; text-align: center; margin-bottom: 20px;">
-            <strong>📢 Admin Announcement:</strong><br>
-            <?php echo $notice['message']; ?>
-            <br>
-            <small style="color:gray;"><?php echo $notice['created_at']; ?></small>
+    <main>
+        <div class="center-box">
+            <h3>Welcome, <?php echo $_SESSION['username']; ?></h3>
+            
+            <div class="button-stack">
+                <button class="btn" onclick="location.href='v_tutor_profile.php'">My Profile</button>
+                <button class="btn" onclick="location.href='v_manage_schedule.php'">Manage Schedule</button>
+                <button class="btn" onclick="location.href='v_upload_resource.php'">Upload Resources</button>
+                <button class="btn" onclick="location.href='v_my_feedback.php'">My Feedback</button>
+                <br>
+                <button class="btn logout-btn" onclick="location.href='../../View/v_logout.php'">Logout</button>
+            </div>
         </div>
-    <?php endif; ?>
+    </main>
 
-    <nav>
-        <a href="v_tutor_profile.php"><button>My Profile</button></a>
-        <a href="../v_logout.php"><button>Logout</button></a>
-        <a href="v_manage_schedule.php"><button>Manage Schedule</button></a>
-        <br><br>
-        <a href="v_upload_resource.php"><button>Upload Resources</button></a>
-        <br><br>
-        <a href="v_my_feedback.php"><button>View Feedback</button></a>
-        <br><br>
-    </nav>
+    <footer>
+        <p>&copy; 2026 Local Tutoring Network</p>
+    </footer>
 </body>
 </html>

@@ -1,37 +1,105 @@
-
-.subject-form {
-    margin: 20px auto;
+body {
+    background-color: lightcyan;
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     text-align: center;
-    padding: 15px;
-    border: 1px solid whitesmoke;
-    width: 50%;
-    background-color: white;
 }
 
-.input-box {
+header h1 {
+    background-color: rgb(25, 93, 119);
+    color: white;
+    margin: 0;
+    padding: 20px;
+    border-bottom: 2px solid darkblue;
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px;
+}
+
+.center-box {
+    background-color: lightblue;
+    border: 2px solid darkblue;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px; 
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: white;
+    border: 2px solid darkblue;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: darkcyan;
+    color: lightcyan;
+}
+
+.logout-btn {
+    background-color: bisque;
+    border-color: brown;
+}
+
+input[type="text"] {
     padding: 8px;
-    width: 60%;
-    border: 1px solid #ccc;
+    width: 70%;
+    border: 1px solid darkblue;
     border-radius: 4px;
 }
 
-.btn-add {
-    background-color: green; 
-    color: white;
+.small-btn {
+    display: inline-block;
+    width: auto;
     padding: 8px 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 8px;
+    border-bottom: 1px solid darkblue;
+    text-align: left;
+}
+
+td:last-child {
+    text-align: right;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
     border: none;
+    padding: 5px 10px;
     cursor: pointer;
+    border-radius: 3px;
     font-weight: bold;
 }
 
-.btn-delete {
-    background-color: red; 
+footer {
+    background-color: rgb(25, 93, 119);
     color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
+    padding: 10px;
+    margin-top: auto;
 }
 
-.btn-add:hover { background-color: green; }
-.btn-delete:hover { background-color: red ; }
+.success { color: green; font-weight: bold; }
+.error { color: red; font-weight: bold; }

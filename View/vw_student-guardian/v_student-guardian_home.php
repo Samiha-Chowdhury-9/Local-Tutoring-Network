@@ -22,7 +22,6 @@ if(!isset($_SESSION['username'])){
         
         <a href="v_student-guardian_profile.php" class="nav-btn">My Profile</a>
         <a href="v_search_tutor.php" class="nav-btn">Search Tutor</a>
-        <a href="v_book_tsession.php" class="nav-btn">Book Tuition Session</a>
         <a href="v_my_bookings.php" class="nav-btn">My Bookings</a>
         <a href="v_resourses.php" class="nav-btn">Resources</a>
         

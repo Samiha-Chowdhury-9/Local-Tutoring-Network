@@ -1,0 +1,137 @@
+
+body {
+    background-color: lightcyan;
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+}
+
+
+header h1 {
+    background-color: rgb(25, 93, 119);
+    color: white;
+    margin: 0;
+    padding: 20px;
+    border-bottom: 2px solid darkblue;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px;
+}
+
+.center-box {
+    background-color: lightblue;
+    border: 2px solid darkblue;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.center-box h3, .center-box h4 {
+    color: rgb(25, 93, 119);
+    margin-top: 0;
+    border-bottom: 2px solid darkblue;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: white;
+    border: 2px solid darkblue;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: darkcyan;
+    color: lightcyan;
+}
+
+.logout-btn {
+    background-color: lightskyblue;
+    border-color: darkblue;
+}
+
+.logout-btn:hover {
+    background-color: darkcyan;
+    color: white;
+}
+
+.back-link {
+    background: none;
+    border: none;
+    color: rgb(50, 84, 140);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+input[type="text"], 
+input[type="date"], 
+input[type="time"],
+textarea {
+    width: 80%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid darkblue;
+    border-radius: 4px;
+}
+
+.small-btn {
+    width: auto;
+    padding: 8px 20px;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+    border: 2px solid darkblue;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid darkblue;
+}
+
+th {
+    background-color: rgb(25, 93, 119);
+    color: white;
+    text-align: right;
+    width: 40%;
+}
+
+td {
+    text-align: left;
+    background-color: white;
+}
+
+footer {
+    background-color: rgb(25, 93, 119);
+    color: white;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.success { color: green; font-weight: bold; margin: 10px 0; }
+.error { color: red; font-weight: bold; margin: 10px 0; }

@@ -8,26 +8,30 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../../View/homeStyle.css">
+    <link rel="stylesheet" href="v_admin_style.css">
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
-    <p>Welcome, <?php echo $_SESSION['username']; ?></p>
-    
-    <nav>
-        <button onclick="location.href='v_profile.php'">My Profile</button>
-        <br><br>
-        
-        <button onclick="location.href='v_manage_tutors.php'">Manage Tutor Approvals</button>
-        
-        <br><br>
-        <button onclick="location.href='../../View/v_logout.php'">Logout</button>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
 
-        <button onclick="location.href='v_manage_subjects.php'">Manage Subjects</button>
-        <br><br>
-        
-        <button onclick="location.href='v_send_notification.php'">Send Bulk Notification</button>
-        <br><br>
-    </nav>
+    <main>
+        <div class="center-box">
+            <h3>Welcome, <?php echo $_SESSION['username']; ?></h3>
+            
+            <div class="button-stack">
+                <button class="btn" onclick="location.href='v_admin_profile.php'">My Profile</button>
+                <button class="btn" onclick="location.href='v_manage_tutors.php'">Manage Tutor Approvals</button>
+                <button class="btn" onclick="location.href='v_manage_subjects.php'">Manage Subjects</button>
+                <button class="btn" onclick="location.href='v_send_notification.php'">Send Bulk Notification</button>
+                <br>
+                <button class="btn logout-btn" onclick="location.href='../../View/v_logout.php'">Logout</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Local Tutoring Network</p>
+    </footer>
 </body>
 </html>

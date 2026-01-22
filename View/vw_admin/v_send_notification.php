@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../../Model/m_notification.php"); // Include Model to fetch history
+require_once("../../Model/m_notification.php"); 
 
 if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){ 
     header("Location: ../v_login.php"); exit(); 

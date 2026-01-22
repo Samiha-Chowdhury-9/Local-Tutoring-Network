@@ -1,6 +1,141 @@
 
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: lightcyan;
+    font-family: sans-serif;
+    min-height: 100vh;
+}
+
+
+h1 {
+    background-color: rgb(25, 93, 119);
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    border-bottom: 2px solid darkblue;
+}
+
+
+h4 {
+    color: rgb(25, 93, 119);
+    border-bottom: 2px solid darkblue;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 30px 20px;
+}
+
+
+.register-container {
+    background-color: lightblue;
+    border: 2px solid darkblue;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px; 
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: rgb(25, 93, 119);
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid darkblue;
+    border-radius: 4px;
+    font-family: sans-serif;
+}
+
+
+.checkbox-group {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border: 1px solid darkblue;
+    border-radius: 4px;
+}
+
+.checkbox-label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+
+.btn {
+    color: black;
+    background-color: white;
+    font-weight: bolder;
+    padding: 10px 20px;
+    border: 2px solid darkblue;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: darkcyan;
+    color: lightcyan;
+}
+
+
+.back-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(50, 84, 140);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
 .error-text {
     color: red;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
+    display: block;
+    margin-top: 2px;
+}
+
+#username_msg {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+footer {
+    background-color: rgb(25, 93, 119);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
 }
