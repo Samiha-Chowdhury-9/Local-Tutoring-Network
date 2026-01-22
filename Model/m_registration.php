@@ -7,8 +7,9 @@ function registerStudent($username, $pass, $email, $edu, $inst, $loc) {
     $check = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
     if(mysqli_num_rows($check) > 0) return "Username taken";
 
-   
-    $sql1 = "INSERT INTO users (username, password, email, role) VALUES ('$username', '$pass', '$email', 'student-guardian')";
+    $enc_pass = md5($pass);
+
+    $sql1 = "INSERT INTO users (username, password, email, role) VALUES ('$username', '$enc_pass', '$email', 'student-guardian')";
     if(mysqli_query($conn, $sql1)){
         $uid = mysqli_insert_id($conn);
         
@@ -19,20 +20,20 @@ function registerStudent($username, $pass, $email, $edu, $inst, $loc) {
 }
 
 
-
 function registerTutor($username, $pass, $email, $edu, $inst, $exp, $sub, $bio, $rate) {
     $conn = dbConnect();
     
     $check = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
     if(mysqli_num_rows($check) > 0) return "Username taken";
 
+    $enc_pass = md5($pass);
+
     $sql1 = "INSERT INTO users (username, password, email, role, status) 
-             VALUES ('$username', '$pass', '$email', 'tutor', 'pending')";
+             VALUES ('$username', '$enc_pass', '$email', 'tutor', 'pending')";
              
     if(mysqli_query($conn, $sql1)){
         $uid = mysqli_insert_id($conn);
         
-     
         $sql2 = "INSERT INTO tutor_profiles (user_id, education_background, institution, experience, subjects, short_bio, hourly_rate) 
                  VALUES ('$uid', '$edu', '$inst', '$exp', '$sub', '$bio', '$rate')";
         if(mysqli_query($conn, $sql2)) return true;
@@ -47,5 +48,4 @@ function isEmailTaken($email) {
     $result = mysqli_query($conn, $query);
     return mysqli_num_rows($result) > 0;
 }
-
 ?>
