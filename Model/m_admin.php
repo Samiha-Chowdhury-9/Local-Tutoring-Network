@@ -56,4 +56,3 @@ function deleteSubject($id) {
     return mysqli_query($conn, $sql);
 }
 ?>
-?>

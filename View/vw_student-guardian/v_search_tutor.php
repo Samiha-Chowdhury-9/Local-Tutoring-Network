@@ -9,7 +9,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'student-guardian'){
 <html>
 <head>
     <title>Search Tutor</title>
-    <link rel="stylesheet" href="vw_css/tutor_search_style.css">
+    <link rel="stylesheet" href="../v_css/common.css">
     <style>
         .search-box { 
             margin: 20px auto; 
