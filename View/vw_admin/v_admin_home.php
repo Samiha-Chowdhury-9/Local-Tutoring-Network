@@ -5,10 +5,25 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="v_admin_style.css">
+    <style>
+    /* Logout button styled in a secondary blue theme */
+    .logout-btn {
+        background-color: #4a6fa5 !important; /* A nice, clean sky blue */
+        color: white !important;
+        border: none;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+        background-color: #35527a !important; /* Slightly deeper blue on hover */
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -17,14 +32,15 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 
     <main>
         <div class="center-box">
-            <h3>Welcome, <?php echo $_SESSION['username']; ?></h3>
+            <h3>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></h3>
             
             <div class="button-stack">
                 <button class="btn" onclick="location.href='v_admin_profile.php'">My Profile</button>
                 <button class="btn" onclick="location.href='v_manage_tutors.php'">Manage Tutor Approvals</button>
                 <button class="btn" onclick="location.href='v_manage_subjects.php'">Manage Subjects</button>
                 <button class="btn" onclick="location.href='v_send_notification.php'">Send Bulk Notification</button>
-                <br>
+                
+                <!-- The logout-btn class will now automatically pick up the red color -->
                 <button class="btn logout-btn" onclick="location.href='../../View/v_logout.php'">Logout</button>
             </div>
         </div>
