@@ -9,7 +9,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){
 <head>
     <meta charset="utf-8">
     <title>Upload Resource</title>
-    <!-- Link to the universal theme (cache-busted) -->
     <link rel="stylesheet" href="../v_css/common.css?v=1.1">
     
     <style>
@@ -34,6 +33,25 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){
             margin-bottom: 5px;
         }
 
+        /* --- Styled Upload Button --- */
+        .file-input-wrapper input[type="file"] { display: none; }
+        .file-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--text-light);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .file-label:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        #file-name { margin-left: 10px; color: var(--text-muted); font-size: 0.9em; }
+
         .cancel-link {
             display: inline-block;
             margin-top: 20px;
@@ -41,10 +59,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){
             font-weight: bold;
             text-decoration: none;
         }
-        
-        .cancel-link:hover {
-            text-decoration: underline;
-        }
+        .cancel-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -57,7 +72,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){
         if(isset($_GET['err'])) echo "<p class='error' style='text-align:center;'>".htmlspecialchars($_GET['err'])."</p>"; 
         ?>
 
-        <!-- Note: Ensure your form has the enctype set for file uploads -->
         <form action="../../Controller/c_resources.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Title:</label>
@@ -69,9 +83,11 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){
                 <input type="text" name="subject" required>
             </div>
 
-            <div class="form-group">
+            <div class="form-group file-input-wrapper">
                 <label>Select File:</label>
-                <input type="file" name="file" required style="border:none; padding-left:0;">
+                <label for="actual-file" class="file-label">Choose File</label>
+                <span id="file-name">No file chosen</span>
+                <input type="file" id="actual-file" name="file" onchange="document.getElementById('file-name').textContent = this.files[0].name" required>
             </div>
 
             <button type="submit" name="upload_resource" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1.1rem;">Upload Resource</button>
