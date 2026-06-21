@@ -1,10 +1,21 @@
 <?php
 require_once("m_dbConnect.php");
 
-function uploadResource($tutor_id, $title, $fileName) {
-    $conn = dbConnect();
-    $sql = "INSERT INTO resources (tutor_id, title, file_name) VALUES ('$tutor_id', '$title', '$fileName')";
-    return mysqli_query($conn, $sql);
+
+function uploadResource($tutor_id, $title, $subject, $fileName) {
+    $conn = dbConnect(); 
+    
+    $sql = "INSERT INTO resources (tutor_id, title, subject, file_name, upload_date) 
+            VALUES ('$tutor_id', '$title', '$subject', '$fileName', NOW())";
+    
+    $result = mysqli_query($conn, $sql);
+    
+    // If the query fails, print the specific MySQL error
+    if (!$result) {
+        die("SQL Error: " . mysqli_error($conn));
+    }
+    
+    return $result;
 }
 
 function getTutorResources($tutor_id) {
