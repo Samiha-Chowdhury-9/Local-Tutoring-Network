@@ -68,7 +68,7 @@ The local server environment must include PHP and MySQL.
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/Local-Tutoring-Network.git
+git clone https://github.com/Samiha-Chowdhury-9/Local-Tutoring-Network
 ```
 
 Alternatively, download and extract the project folder.
