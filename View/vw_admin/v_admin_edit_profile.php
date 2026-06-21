@@ -10,7 +10,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 <head>
     <meta charset="utf-8">
     <title>Edit Profile</title>
-    <!-- Corrected relative depth path to reach common.css -->
     <link rel="stylesheet" href="../../View/v_css/common.css?v=1.1">
     
     <style>
@@ -55,11 +54,9 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
             <p class="error" style="text-align: center;"><?php echo htmlspecialchars($_GET['error']); ?></p>
         <?php endif; ?>
 
-        <!-- FIXED ACTION: Directing route path toward your active c_profiles.php file -->
         <form action="../../Controller/c_profiles.php" method="POST">
             <div class="form-group">
                 <label>Username:</label>
-                <!-- Marked as readonly or disabled if you don't allow modifying database primary usernames -->
                 <input type="text" name="username" value="<?php echo htmlspecialchars($_SESSION['username']); ?>" readonly style="background-color: #e9ecef; cursor: not-allowed;">
             </div>
 
@@ -68,7 +65,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
                 <input type="email" name="email" required placeholder="Enter new email profile">
             </div>
 
-            <!-- FIXED NAME: Changed to update_admin to hit the specific block in c_profiles.php -->
             <button type="submit" name="update_admin" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">Save Changes</button>
         </form>
 

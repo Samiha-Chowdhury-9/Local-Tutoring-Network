@@ -6,7 +6,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'student-guardian'){
     header("Location: ../v_login.php"); exit(); 
 }
 
-// Fetch resources using your model function (adjust function name if needed)
 $resources = getAllResources(); 
 ?>
 <!DOCTYPE html>
@@ -14,7 +13,6 @@ $resources = getAllResources();
 <head>
     <meta charset="utf-8">
     <title>Study Resources</title>
-    <!-- Link to the universal theme (cache-busted) -->
     <link rel="stylesheet" href="../v_css/common.css?v=1.1">
     
     <style>
@@ -33,7 +31,6 @@ $resources = getAllResources();
             padding-bottom: 10px;
         }
 
-        /* Specific Download Button Theme */
         .btn-download {
             background-color: var(--text-light);
             color: var(--primary-color);
@@ -74,7 +71,6 @@ $resources = getAllResources();
             <p class="error" style="text-align:center;"><?php echo htmlspecialchars($_GET['err']); ?></p>
         <?php endif; ?>
 
-        <!-- Applied the theme-table class from common.css -->
         <table class="theme-table">
             <thead>
                 <tr>
@@ -99,7 +95,6 @@ $resources = getAllResources();
                                 <?php echo htmlspecialchars($res['upload_date']); ?>
                             </td>
                             <td style="text-align: center;">
-                                <!-- Link to the uploads folder where files are stored -->
                                 <a href="../../uploads/<?php echo htmlspecialchars($res['file_name']); ?>" class="btn-download" download>Download</a>
                             </td>
                         </tr>

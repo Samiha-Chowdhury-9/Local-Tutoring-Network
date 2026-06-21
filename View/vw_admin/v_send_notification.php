@@ -18,7 +18,6 @@ $history = getAllNotifications();
     <style>
         body { padding-bottom: 40px; }
 
-        /* Custom spacing wrapper matching the layout width of the theme table */
         .broadcast-box {
             border: 1px solid var(--border-color);
             background-color: var(--text-light);
@@ -39,7 +38,6 @@ $history = getAllNotifications();
             margin-top: -5px;
         }
 
-        /* Clean style for the primary broadcast action button */
         .btn-broadcast {
             background-color: var(--text-light);
             color: var(--primary-color);
@@ -52,7 +50,6 @@ $history = getAllNotifications();
             color: var(--text-light);
         }
 
-        /* Styled delete action inside table records */
         .btn-delete-row {
             padding: 0.4rem 0.8rem;
             font-size: 0.85rem;

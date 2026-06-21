@@ -27,7 +27,6 @@ $avgRating = getAvgRating($tutor_id);
             padding-bottom: 10px;
         }
 
-        /* Themed Summary Box */
         .summary-card { 
             background-color: var(--text-light); 
             border: 2px solid var(--primary-color); 
@@ -39,7 +38,6 @@ $avgRating = getAvgRating($tutor_id);
             text-align: center;
         }
 
-        /* Themed Review Cards */
         .review-card {
             border: 1px solid var(--border-color); 
             width: 90%; 

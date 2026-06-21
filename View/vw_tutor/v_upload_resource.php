@@ -33,7 +33,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'tutor'){
             margin-bottom: 5px;
         }
 
-        /* --- Styled Upload Button --- */
         .file-input-wrapper input[type="file"] { display: none; }
         .file-label {
             display: inline-block;

@@ -19,13 +19,11 @@ $data = getAdminData($_SESSION['user_id']);
     <style>
         body { padding-bottom: 40px; }
 
-        /* Custom constraints optimized for individual data presentation matrices */
         .profile-card {
             max-width: 550px;
             margin-top: 3rem;
         }
 
-        /* Clean alignment spacing adjustments specifically tailored for data view profiles */
         .profile-table {
             width: 100%;
             margin: 20px 0;

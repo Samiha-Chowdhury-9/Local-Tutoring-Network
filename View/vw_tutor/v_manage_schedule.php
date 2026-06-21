@@ -31,15 +31,14 @@ $mySlots = getTutorSlots($_SESSION['user_id']);
             padding-bottom: 10px;
         }
 
-        /* ----- UPDATED: Stronger Border ----- */
         .add-slot-card {
-            background-color: rgba(25, 93, 119, 0.08); /* Keeps the soft, easy-on-the-eyes background */
-            border: 2px solid var(--primary-color); /* Strong, fully opaque solid border */
+            background-color: rgba(25, 93, 119, 0.08); 
+            border: 2px solid var(--primary-color); 
             padding: 25px 30px;
             border-radius: 8px;
             max-width: 400px;
             margin: 0 auto 30px auto;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a drop shadow so the box pops out more */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
         }
 
         .add-slot-card h3 {
@@ -64,13 +63,11 @@ $mySlots = getTutorSlots($_SESSION['user_id']);
             margin-bottom: 5px;
         }
 
-        /* Dynamic Status Colors mapped to theme variables */
         .available { color: var(--success); font-weight: bold; }
         .booked { color: var(--danger); font-weight: bold; }
 
-        /* Soothing Remove Button */
         .btn-remove {
-            background-color: #607d8b; /* Soothing Slate Blue */
+            background-color: #607d8b; 
             color: white;
             border-color: #455a64;
             padding: 6px 12px;

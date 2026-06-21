@@ -30,9 +30,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'student-guardian'){
             max-width: 500px;
         }
 
-        /* * Automatically themes the 'Book Session' buttons generated 
-         * dynamically by the c_search_tutor.php controller 
-         */
+  
         .book-btn {
             display: inline-block;
             padding: 8px 15px;

@@ -14,14 +14,12 @@ $mySubjects = explode(", ", $data['subjects'] ?? '');
 <head>
     <meta charset="utf-8">
     <title>Edit Profile</title>
-    <!-- Link to the universal theme -->
     <link rel="stylesheet" href="../v_css/common.css?v=1.1">
     <style>
         body {
             padding-top: 40px; 
         }
 
-        /* --- WIDTH CONTROL: Set to a comfortable 700px for forms --- */
         .form-container {
             max-width: 700px !important; 
             width: 95%; 
@@ -47,7 +45,6 @@ $mySubjects = explode(", ", $data['subjects'] ?? '');
             margin-bottom: 5px;
         }
 
-        /* Checkbox styling specifically for the theme */
         .checkbox-group { 
             background-color: var(--text-light);
             border: 1px solid var(--border-color);

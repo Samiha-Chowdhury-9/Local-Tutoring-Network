@@ -21,7 +21,7 @@ $myBookings = getStudentBookings($_SESSION['user_id']);
         }
 
         .dashboard-container {
-            max-width: 900px; /* Slightly wider to accommodate the table gracefully */
+            max-width: 900px; 
         }
 
         .header-title {
@@ -31,7 +31,6 @@ $myBookings = getStudentBookings($_SESSION['user_id']);
             padding-bottom: 10px;
         }
 
-        /* Modernized Rating Box inside the Details tag */
         details summary {
             cursor: pointer;
             color: var(--primary-color);
@@ -48,7 +47,7 @@ $myBookings = getStudentBookings($_SESSION['user_id']);
             margin-top: 10px; 
             border-top: 1px dashed var(--border-color); 
             padding-top: 15px; 
-            background-color: var(--text-light); /* White inner background */
+            background-color: var(--text-light);
             padding: 15px;
             border-radius: 5px;
             border: 1px solid var(--border-color);

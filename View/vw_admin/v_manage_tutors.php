@@ -13,19 +13,16 @@ $pendingTutors = getPendingTutors();
 <head>
     <meta charset="utf-8">
     <title>Manage Tutors</title>
-    <!-- Corrected deep route to bind perfectly with your active master variables -->
     <link rel="stylesheet" href="../../View/v_css/common.css?v=1.1">
     
     <style>
         body { padding-bottom: 40px; }
         
-        /* Action buttons layout tuning */
         .action-cell {
             white-space: nowrap;
             gap: 8px;
         }
 
-        /* Specific clean inline style for action buttons inside the theme table */
         .btn-action {
             padding: 0.4rem 0.8rem;
             font-size: 0.85rem;
@@ -75,7 +72,6 @@ $pendingTutors = getPendingTutors();
     <div class="dashboard-container">
         <h2 style="text-align: center; margin-bottom: 25px;">Pending Tutor Approvals</h2>
         
-        <!-- Standard utility class message feedback blocks -->
         <?php if(isset($_GET['msg'])): ?>
             <p class="success" style="text-align: center; margin-bottom: 15px;"><?php echo htmlspecialchars($_GET['msg']); ?></p>
         <?php endif; ?>

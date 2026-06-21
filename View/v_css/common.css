@@ -1,7 +1,6 @@
-/* v_css/common.css */
 
 :root {
-    /* Your Original Project Colors */
+
     --bg-page: lightcyan;
     --bg-card: lightblue;
     --primary-color: rgb(25, 93, 119);
@@ -117,7 +116,7 @@ th {
 }
 
 tr:nth-child(even) td {
-    background-color: #f1f8ff; /* Very slight blue tint for table rows */
+    background-color: #f1f8ff; 
 }
 
 /* Utility Classes */
@@ -131,7 +130,7 @@ tr:nth-child(even) td {
     font-weight: bold; 
 }
 
-/* Footer (to stick to bottom) */
+
 footer {
     background-color: var(--primary-color);
     color: var(--text-light);

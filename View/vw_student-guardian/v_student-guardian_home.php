@@ -14,7 +14,6 @@ if(!isset($_SESSION['username'])){
     <link rel="stylesheet" href="../v_css/common.css?v=1.1">
     
     <style>
-        /* Specific layout and colors for the Student Dashboard */
         body {
             display: flex;
             flex-direction: column;
@@ -84,14 +83,14 @@ if(!isset($_SESSION['username'])){
         }
 
         .btn-logout {
-            background-color: #607d8b; /* Soothing Slate Blue */
+            background-color: #607d8b; 
             color: white;
             border-color: #455a64;
             margin-top: 25px;
         }
 
         .btn-logout:hover {
-            background-color: #455a64; /* Darker slate on hover */
+            background-color: #455a64; 
             color: white;
         }
     </style>

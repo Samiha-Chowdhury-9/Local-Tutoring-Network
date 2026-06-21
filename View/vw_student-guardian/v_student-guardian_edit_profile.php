@@ -17,7 +17,6 @@ $data = getStudentData($_SESSION['user_id']);
     
     <style>
         body {
-            /* Adds a little breathing room at the top of the page */
             padding-top: 40px; 
         }
         
@@ -40,16 +39,15 @@ $data = getStudentData($_SESSION['user_id']);
             padding-bottom: 10px;
         }
 
-        /* Danger Button for Deletion */
 
         .btn-danger {
-            background-color: #607d8b; /* Soothing Slate Blue */
+            background-color: #607d8b; 
             color: white;
             border-color: #455a64;
         }
 
         .btn-danger:hover {
-            background-color: #455a64; /* Darker slate on hover */
+            background-color: #455a64; 
             color: white;
         }
         

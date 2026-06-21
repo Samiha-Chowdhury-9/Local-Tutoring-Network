@@ -11,9 +11,8 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="v_admin_style.css">
     <style>
-    /* Logout button styled in a secondary blue theme */
     .logout-btn {
-        background-color: #4a6fa5 !important; /* A nice, clean sky blue */
+        background-color: #4a6fa5 !important; 
         color: white !important;
         border: none;
         margin-top: 20px;
@@ -21,7 +20,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     }
 
     .logout-btn:hover {
-        background-color: #35527a !important; /* Slightly deeper blue on hover */
+        background-color: #35527a !important; 
     }
     </style>
 </head>
@@ -40,7 +39,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
                 <button class="btn" onclick="location.href='v_manage_subjects.php'">Manage Subjects</button>
                 <button class="btn" onclick="location.href='v_send_notification.php'">Send Bulk Notification</button>
                 
-                <!-- The logout-btn class will now automatically pick up the red color -->
                 <button class="btn logout-btn" onclick="location.href='../../View/v_logout.php'">Logout</button>
             </div>
         </div>

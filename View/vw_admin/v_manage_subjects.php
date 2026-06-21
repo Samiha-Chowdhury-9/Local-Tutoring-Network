@@ -18,7 +18,6 @@ $subjects = getAllSubjects();
     <style>
         body { padding-bottom: 40px; }
 
-        /* Unified Inline Add-Subject Form styling layout */
         .subject-form-wrapper {
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
@@ -32,7 +31,7 @@ $subjects = getAllSubjects();
         }
 
         .inline-form input[type="text"] {
-            margin-bottom: 0; /* Remove baseline spacing to align flat with the submit button */
+            margin-bottom: 0; 
             flex: 1;
         }
 
@@ -40,7 +39,7 @@ $subjects = getAllSubjects();
             background-color: var(--text-light);
             color: var(--primary-color);
             white-space: nowrap;
-            height: 46px; /* Matches form input padding block layout height */
+            height: 46px; 
         }
 
         .btn-add-subject:hover {
@@ -48,7 +47,6 @@ $subjects = getAllSubjects();
             color: var(--text-light);
         }
 
-        /* Specific clean style for delete operations inside rows */
         .btn-delete-row {
             padding: 0.4rem 0.8rem;
             font-size: 0.85rem;

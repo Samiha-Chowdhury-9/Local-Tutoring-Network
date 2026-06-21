@@ -6,7 +6,6 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'student-guardian'){
     header("Location: ../v_login.php"); exit(); 
 }
 
-// Redirect back to search instead of home if no tutor_id is provided
 if(!isset($_GET['tutor_id'])) {
     header("Location: v_search_tutor.php"); exit();
 }
@@ -39,7 +38,7 @@ $slots = getAvailableSlots($tutor_id);
             margin: 15px auto; 
             width: 100%;
             max-width: 500px;
-            background-color: var(--text-light); /* White background inside card */
+            background-color: var(--text-light);
             display: flex; 
             justify-content: space-between; 
             align-items: center;
@@ -51,7 +50,6 @@ $slots = getAvailableSlots($tutor_id);
             color: var(--primary-color);
         }
 
-        /* Distinct green booking button */
         .btn-book { 
             background-color: #27ae60; 
             color: white; 
